@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "les 40 règles de Shams de Tabriz – Soufi mon Amour",
+    "slug": "shams",
+    "sdkVersion": "42.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/shams-roundcorner.png",
+    "splash": {
+      "image": "./assets/shams-roundcorner.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#D4DDE4"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFF"
+      },
+      "permission":[""]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
