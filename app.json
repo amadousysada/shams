@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFF"
       },
-      "permissions":[""]
+      "permissions":[""],
+      "package": "com.amadousy.shams"
     },
     "web": {
       "favicon": "./assets/favicon.png"
