@@ -5,7 +5,7 @@
     "sdkVersion": "42.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/shams-roundcorner.png",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/shams-roundcorner.png",
       "resizeMode": "cover",
@@ -21,15 +21,13 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFF"
-      },
-      "permissions":[""],
+      "versionCode":2,
+      "permissions": [],
       "package": "com.amadousy.shams"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }
