@@ -3,6 +3,7 @@ import { Heading, IconButton, View } from 'native-base'
 import { Dimensions, ImageBackground, Share, StyleSheet, TouchableOpacity, Text } from "react-native"
 import { MaterialCommunityIcons} from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
+import { Platform } from "react-native"
 
 const topPaddingValue = Dimensions.get("screen").height/4
 
@@ -32,9 +33,8 @@ export const MyCustomModal = ({data}) => {
 
     return (
         <ImageBackground source={require("../assets/shams-roundcorner.png")} resizeMode="cover" style={{width:'100%', flex:1}}>
-        <View bg="transparent">
+        <View bg="transparent" pt={Platform.OS=="ios"?5:0}>
           <View bg="transparent" minHeight="100%" minWidth="100%" paddingLeft={0} paddingRight={0}>
-            
             <View padding={2} paddingTop={7} style={{flexDirection:'row', justifyContent:'space-between'}}>
               <Heading>{data && "Régle N°"+data.id}</Heading>
               <IconButton

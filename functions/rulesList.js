@@ -5,6 +5,7 @@ import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import { Entypo} from "@expo/vector-icons"
 import { MyStagger } from './stagger';
 import { AppCtx } from '../utils';
+import { Platform } from 'react-native';
 
 export const RulesList = ({data, action}) => {
     const { isOpen, onToggle } = useDisclose()
@@ -16,9 +17,9 @@ export const RulesList = ({data, action}) => {
     }
 
     return (
-        <Center on>
+        <Center pt={Platform.OS=="ios"?10:0}>
         <MyStagger isOpen={isOpen} onToggle={onToggle}/>
-        <HStack height={65} mx={2} alignItems="center" justifyContent="space-between" alignSelf="stretch" top={0}>
+        <HStack height={"10%"} mx={2} alignItems="center" justifyContent="space-between" alignSelf="stretch" top={0}>
             <Text style={{fontWeight:'bold', fontSize:20, padding:10, width:'80%'}}>
                 Les 40 règles de Shams de Tabriz – Soufi mon Amour
             </Text>
@@ -26,7 +27,7 @@ export const RulesList = ({data, action}) => {
                 <Entypo size={30} name='info-with-circle' onPress={onToggle}/>
             </Center>
         </HStack>
-        <VStack space={1} alignItems="center" justifyContent="center" bg="transparent">
+        <VStack height={"80%"} space={1} alignItems="center" justifyContent="center" bg="transparent">
             <StatusBar backgroundColor='#D4DDE4' barStyle="dark-content" />
             <FlatList
                 data={data}
@@ -50,7 +51,7 @@ export const RulesList = ({data, action}) => {
                 ItemSeparatorComponent={()=><Divider my={0} size={1} bg="transparent" />}
             />
         </VStack>
-        <Box height={50}>
+        <Box height={"10%"} justifyContent="flex-end" bottom={Platform.OS=="ios"?8:0}>
             <Text textAlign='center' style={styles.textStyle} >Puisse ces règles vous apporter plus d’amour dans votre vie.</Text>
         </Box>          
         </Center>
