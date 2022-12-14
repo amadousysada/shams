@@ -20,7 +20,7 @@ export const MyStagger = ({isOpen, onToggle}) => {
       
             <Box
                 style={{
-                    backgroundColor:'white',
+                    backgroundColor: isOpen ? 'white':'transparent',
                     zIndex:1,
                     position:'absolute',
                     right:0,
@@ -68,11 +68,11 @@ export const MyStagger = ({isOpen, onToggle}) => {
                             <View style={styles.profile}>
                                 <Image source={require("../assets/profile.jpeg")} style={styles.img} />
                             </View>
-                            <Divider  size={5} bg='black'/>
+                            <Divider  size={5} bg='transparent'/>
                             <Entypo name='linkedin-with-circle' size={40} color='#0077b5' onPress={openLinkdin} />
                                 
-                            <Entypo name='twitter-with-circle' size={40} color='#1DA1F2' onPress={opentwitter} />
-                            <Divider  size={5} bg='black'/>
+                            {/*<Entypo name='twitter-with-circle' size={40} color='#1DA1F2' onPress={opentwitter} />
+                            <Divider  size={5} bg='transparent'/>*/}
                         </VStack>
                         <AntDesign onPress={onToggle} name='closecircle' color='red' size={40} style={{marginTop:20}} />
                     </Stagger>

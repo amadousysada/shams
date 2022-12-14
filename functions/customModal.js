@@ -1,16 +1,14 @@
 import React from "react"
-import { Text, Heading, Modal, IconButton } from 'native-base'
-import { MyStagger } from "./stagger"
-import { Dimensions, ImageBackground, Share, StyleSheet, TouchableOpacity } from "react-native"
-import { MaterialCommunityIcons, FontAwesome} from "@expo/vector-icons"
+import { Heading, IconButton, View } from 'native-base'
+import { Dimensions, ImageBackground, Share, StyleSheet, TouchableOpacity, Text } from "react-native"
+import { MaterialCommunityIcons} from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native"
 
 const topPaddingValue = Dimensions.get("screen").height/4
-const bottomPaddingValue = Dimensions.get("screen").height/4
 
-export const MyCustomModal = ({data, showModal, setShowModal}) => {
+export const MyCustomModal = ({data}) => {
 
-    
-
+    const navigation = useNavigation()
     const share =async () => {
         try {
           const result = await Share.share({
@@ -34,41 +32,35 @@ export const MyCustomModal = ({data, showModal, setShowModal}) => {
 
     return (
         <ImageBackground source={require("../assets/shams-roundcorner.png")} resizeMode="cover" style={{width:'100%', flex:1}}>
-
-        <Modal
-            size={'100%'}
-            isOpen={showModal}
-            onClose={() => setShowModal(!showModal)}
-            bg="transparent"
+        <View bg="transparent">
+          <View bg="transparent" minHeight="100%" minWidth="100%" paddingLeft={0} paddingRight={0}>
             
-        >
-          <Modal.Content bg="transparent" minHeight="100%" minWidth="100%" paddingLeft={0} paddingRight={0}>
-            <Modal.CloseButton my={2} bg="red.500"/>
-            <Modal.Header paddingLeft ={2}>
-                
-                    <Heading>{data && "Régle N°"+data.id}</Heading>
-                
-            </Modal.Header>
-            <Modal.Body  justifyContent='center' alignItems='center'  padding={0}>
-                        
+            <View padding={2} paddingTop={7} style={{flexDirection:'row', justifyContent:'space-between'}}>
+              <Heading>{data && "Régle N°"+data.id}</Heading>
+              <IconButton
+                variant="subtle"
+                rounded="2xl"
+                bg={'red.500'}
+                onPress={()=>navigation.goBack()}
+                icon={<MaterialCommunityIcons size={15} name="close" color='white' />}
+              />
+            </View>
+            <View justifyContent='center' alignItems='center'  padding={0}>    
                 <Text style={styles.textStyle}
                 >
                     {data && data.content}
                 </Text>
                 <TouchableOpacity onPress={share} style={{flexDirection:'row',backgroundColor:'white', alignItems:'center', borderRadius:10, width:150}}>
                     <IconButton
-                                variant="unstyled"
-                                rounded="full"
-                                icon={<MaterialCommunityIcons size={24} name="share" />}
+                      variant="unstyled"
+                      rounded="full"
+                      icon={<MaterialCommunityIcons size={24} name="share" color="black" />}
                     />
-                    <Text style={{textAlign:'center',color:'black',fontWeight:'bold', textAlignVertical:'center'}}>Partager</Text>
+                    <Text style={{textAlign:'center', fontWeight:'bold', textAlignVertical:'center'}}>Partager</Text>
                 </TouchableOpacity>
-                
-                {/*<MyStagger />*/}
-            </Modal.Body>
-            
-          </Modal.Content>
-        </Modal>
+            </View>
+          </View>
+        </View>
       </ImageBackground>
     )
 }
@@ -86,5 +78,6 @@ const styles = StyleSheet.create({
         backgroundColor:'rgba(0, 0, 0, 0.4)',
         borderRadius:10,
         color:'white',
+        padding:20
     }
 })
