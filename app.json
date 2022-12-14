@@ -20,10 +20,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.amadousy.shams",
+      "buildNumber": "1"
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": [],
       "package": "com.amadousy.shams"
     },
